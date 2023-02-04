@@ -1,0 +1,97 @@
+package billgeneratedsystem;
+import java.util.Scanner;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;    
+class billgeneratedsystem { 
+	public static Scanner input = new Scanner(System.in);
+	public static int choice,Quantity=1;
+	public static String again;
+	public static double total=0,Pay;
+	public static void menu(){
+		System.out.println("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
+		System.out.println("\t1Welcome to our resturant");
+		System.out.println("\t2resturant menu:");
+		System.out.println("\t3.pizza 80.00");
+		System.out.println("\t4.coffee 40.00");
+		System.out.println("\t5.cancel");
+	}
+	public static void order(){
+		System.out.println("1 to burger || 2 to pizza || 3 to coffee");
+		System.out.println("press you want to order");
+		choice=input.nextInt();
+		if(choice==1){
+			System.out.println("you choice burger");
+			System.out.println("how many burger you want :");
+			Quantity=input.nextInt();
+			total=total+(Quantity*80);
+			if (again.equalsIgnoreCase("Y"))
+				order();
+			
+			else{
+				System.out.println("Enter payment:");
+Pay=input.nextDouble();
+if(Pay<total)
+	System.out.println("no neew more");
+else{
+	System.out.println("total="+total);
+	total=Pay-total;
+	System.out.println("customer's return "+total+"tk");
+}
+		}
+	}
+		
+	else if(choice==2){
+			System.out.println("you choice pizza");
+			System.out.println("how many burger you want :");
+			Quantity=input.nextInt();
+			total=total+(Quantity*80);
+			if (again.equalsIgnoreCase("Y"))
+				order();
+			else{
+				System.out.println("Enter payment:");
+Pay=input.nextDouble();
+if(Pay<total)
+	System.out.println("no neew more");
+else{
+	System.out.println("total="+total);
+	total=Pay-total;
+	System.out.println("customer's return "+total+"tk");
+}
+		}
+	}
+	else if(choice==3){
+			System.out.println("you choice coffee");
+			System.out.println("how many burger you want :");
+			Quantity=input.nextInt();
+			total=total+(Quantity*80);
+			if (again.equalsIgnoreCase("Y"))
+				order();
+			else{
+				System.out.println("Enter payment:");
+Pay=input.nextDouble();
+if(Pay<total)
+	System.out.println("no neew more");
+else{
+	System.out.println("total="+total);
+	total=Pay-total;
+	System.out.println("customer's return "+total+"tk");
+}
+		}
+	}
+	else if(choice==4){
+		System.exit(0);
+	}
+	else{
+		System.out.println("choose a food in this item:");
+		order();
+	}
+	}
+  public static void main(String[] args) {    
+   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+   LocalDateTime now = LocalDateTime.now();  
+   System.out.println(dtf.format(now));  
+   menu();
+   order();
+    System.out.println(dtf.format(now));  
+  }    
+}    
